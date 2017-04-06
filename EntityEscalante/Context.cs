@@ -36,8 +36,6 @@ namespace EntityEscalante
                 .HasMany(x => x.Libros)
                 .WithRequired(x => x.Escritor);
 
-
-
             modelBuilder.Entity<Libro>()
                 .ToTable("Libros")
                 .Property(x => x.Nombre)
@@ -47,7 +45,6 @@ namespace EntityEscalante
                 .Property(x => x.ISBN)
                 .IsRequired()
                 .HasMaxLength(20);
-
 
             base.OnModelCreating(modelBuilder);
         }

@@ -22,15 +22,15 @@ namespace EntityEscalante
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //var escritor = db.Escritores
-            //    .Include(x => x.Libros)
-            //    .FirstOrDefault(x => x.Id == 1);
+            var escritor = db.Escritores
+                .Include(x => x.Libros)//Eager Loading
+                .FirstOrDefault(x => x.Id == 1);
 
-
-            //var librosEscritos = escritor.Libros;
+            var librosEscritos = escritor.Libros;
 
             var libro = db.Libros.Find(1);
-            var _escritor = libro.Escritor;
+            var _escritor = libro.Escritor;//Lazy Loading
+            var _escritorTodosLibros = libro.Escritor.Libros;
         }
     }
 }
